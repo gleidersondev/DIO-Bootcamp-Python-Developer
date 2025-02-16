@@ -40,8 +40,3 @@ print(nome, idade, sep=', ')
 
 
 
-
-
-
-
-
