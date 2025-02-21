@@ -27,19 +27,23 @@ cheque_especial = 450
 conta_normal = False
 conta_universitaria = True
 
-if conta_normal:
-  if saque <= saldo:
-    print("Saque realizado com sucesso")
-  elif saque <= (saldo + cheque_especial):
-    print("Saque realizado usando limite do cheque especial")
-  else:
-    print('Não foi possível realizar o saque, saldo insuficiente!')
-elif conta_universitaria:
-  if saque <= saldo:
-    print("Saque em conta universitaria realizado com sucesso")
-  elif saque <= (saldo + cheque_especial):
-    print("Saque realizado em conta universitaria usando limite do cheque especial")
-  else:
-    print('Não foi possível realizar o saque em conta universitaria, saldo insuficiente!')
-else:
-  print("Não foi possível reconhecer seu tipo de conta, entre em contato com seu gerente")
+# if conta_normal:
+#   if saque <= saldo:
+#     print("Saque realizado com sucesso")
+#   elif saque <= (saldo + cheque_especial):
+#     print("Saque realizado usando limite do cheque especial")
+#   else:
+#     print('Não foi possível realizar o saque, saldo insuficiente!')
+# elif conta_universitaria:
+#   if saque <= saldo:
+#     print("Saque em conta universitaria realizado com sucesso")
+#   elif saque <= (saldo + cheque_especial):
+#     print("Saque realizado em conta universitaria usando limite do cheque especial")
+#   else:
+#     print('Não foi possível realizar o saque em conta universitaria, saldo insuficiente!')
+# else:
+#   print("Não foi possível reconhecer seu tipo de conta, entre em contato com seu gerente")
+
+status = "Sucesso" if saque <= saldo else "falha"
+print(f"{status} Ao realizar o saque")
+
