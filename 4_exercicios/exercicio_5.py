@@ -3,4 +3,7 @@
 palavra = str(input("Digite uma palavra: "))
 print(palavra)
 
-print("a" in palavra)
+if "a" in palavra:
+  print(f"A letra 'a' consta na palavra {palavra}")
+else:
+  print(f"A letra 'a' não consta na palavra {palavra}")
