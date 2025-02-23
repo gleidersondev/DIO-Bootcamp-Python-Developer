@@ -24,3 +24,31 @@
 # ✅ Evitar erros com entradas inválidas
 # Se o usuário digitar uma opção inválida,
 # o programa deve exibir uma mensagem de erro e pedir novamente a entrada.
+
+opcoes = 0
+saldo = 1500.0
+saque = 0
+opcao_saque = 0
+
+while True:
+  try:
+    opcoes = int(input("Por favor, selecione uma das opções: \n[1] Sacar \n[2] Ver Saldo \n[0] Sair \n"))
+    if opcoes == 1:
+      saque = float(input("Insira o valor do saque: "))
+      if saque <= saldo:
+        opcao_saque = int(input(f"Deseja sacar realmente o valor de: R$ {saque:.2f}? \n[1] Sim \n[2] Cancelar \n"))
+        if opcao_saque == 1:
+          saldo -= saque
+          print(f"Saque efetuado com sucesso! Seu saldo atual é de: R$ {saldo:.2f}")
+        else:
+          print("Operação cancelada")
+      else:
+        print("Saldo insuficiente!")
+    elif opcoes == 2:
+      print(f"O saldo da sua conta é de: R$ {saldo:.2f}")
+    else:
+      print("Obrigado por utilizar os nossos serviços! Até a próxima!!!")
+      break
+  except ValueError:
+    print("ERRO! Digite um número válido.")
+
