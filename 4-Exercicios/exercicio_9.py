@@ -26,7 +26,7 @@
 # o programa deve exibir uma mensagem de erro e pedir novamente a entrada.
 
 opcoes = 0
-saldo = 1500.0
+saldo = 1500.00
 saque = 0
 opcao_saque = 0
 
