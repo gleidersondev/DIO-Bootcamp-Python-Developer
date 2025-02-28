@@ -23,3 +23,13 @@ def retorna_antecessor_e_sucessor(numero):
 
 print(calcular_total([1,2,3]))
 print(retorna_antecessor_e_sucessor(10))
+
+# Argumentos Nomeados
+def salvar_carro(marca, modelo, ano, placa):
+    # salva carro no banco de dados...
+    print(f"Carro inserido com sucesso! {marca}/{modelo}/{ano}/{placa}")
+
+
+salvar_carro("Fiat", "Palio", 1999, "ABC-1234")
+salvar_carro(marca="Fiat", modelo="Palio", ano=1999, placa="ABC-1234")
+salvar_carro(**{"marca": "Fiat", "modelo": "Palio", "ano": 1999, "placa": "ABC-1234"})
