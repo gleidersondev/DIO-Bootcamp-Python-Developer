@@ -57,6 +57,7 @@ def sistema_bancario (saldo_inicial):
         print(mensagem)
       elif opcao == 1:
         saque = float(input("Digite o valor do saque: "))
+        
         print(f"Depósito de R$ {saque:.2f} efetuado com sucesso!")
         transacao.append({"Saque": f"{saque:.2f}"})
         print(transacao)
