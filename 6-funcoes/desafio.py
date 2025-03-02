@@ -30,33 +30,31 @@ Seja bem-vindo ao PyBank. Escolha uma opção do menu abaixo.
 
 => """
 
-transacao = [
-
-]
-
 saldo = 0
+
+transacao = []
+
 limite = 500
 numero_saques = 0
 LIMITE_SAQUES = 3
 
-def sistema_bancario ():
+def sistema_bancario (saldo_inicial):
   while True:
     try:
       opcao = int(input(menu))
+      resultado = 0
       if opcao == 0:
         deposito = float(input("Digite o valor do depósito: "))
         print(f"Depósito de R$ {deposito:.2f} efetuado com sucesso!")
         transacao.append({"Operacao": "Deposito", "Valor": f"{deposito:.2f}"})
         for valores in transacao:
-          resultado = 0
-          mensagem = f"Seu saldo é de {saldo + resultado}"
           if(valores["Operacao"] == "Deposito"):
             resultado += float(valores["Valor"])
-            print(mensagem)
           else:
             resultado -= float(valores["Valor"])
-            print(mensagem)
         print(transacao)
+        mensagem = f"Seu saldo é de {saldo_inicial + resultado}"
+        print(mensagem)
       elif opcao == 1:
         saque = float(input("Digite o valor do saque: "))
         print(f"Depósito de R$ {saque:.2f} efetuado com sucesso!")
@@ -73,7 +71,7 @@ def sistema_bancario ():
     except ValueError:
       print("Digite um número valido!")
 
-sistema_bancario()
+sistema_bancario(saldo)
 
 
 # ========== EXTRATO ==========
