@@ -31,9 +31,6 @@ Seja bem-vindo ao PyBank. Escolha uma opção do menu abaixo.
 => """
 
 transacao = []
-limite = 500
-numero_saques = 0
-LIMITE_SAQUES = 3
 
 def atualizar_saldo (mov_transacao):
  resultado_parcial = 0
@@ -43,11 +40,15 @@ def atualizar_saldo (mov_transacao):
       resultado_parcial += float(valores["Valor"])
     else:
       resultado_parcial -= float(valores["Valor"])
+ print(f"resultado dentro de atualiza saldo {resultado_parcial}")
  return resultado_parcial
 
 def sistema_bancario (mov_transacao):
-  saldo_inicial = 1000
   saldo = 0
+  numero_saques = 0
+  limite = 500
+  LIMITE_SAQUES = 3
+  mensagem = f"Seu saldo é de {saldo}"
 
   while True:
     try:
@@ -57,29 +58,38 @@ def sistema_bancario (mov_transacao):
         deposito = float(input("Digite o valor do depósito: "))
         print(f"Depósito de R$ {deposito:.2f} efetuado com sucesso!")
         transacao.append({"Operacao": "Deposito", "Valor": f"{deposito:.2f}"})
-        print(f"O conteudo de transação é {transacao}")
         atualizacao = atualizar_saldo(mov_transacao)
-        print(f" O somatorio de transação é {atualizacao}")
         saldo = 0
-        print(f"O saldo é {saldo}")
-        saldo = saldo_inicial + atualizacao
-        mensagem = f"Seu saldo é de {saldo}"
+        saldo = atualizacao
+        print(f"o saldo é de: {saldo:.2f}")
         print(mensagem)
 
       elif opcao == 1:
-        saque = float(input("Digite o valor do saque: "))
+        if numero_saques >= LIMITE_SAQUES:
+          print("Seu limite diário de 3 saques já foi atingido!")
+        else:
+          saque = float(input("Digite o valor do saque: "))
+          if saque > saldo:
+            print("Não foi possível realizar a operação. Saldo indisponível!")
+          elif saque > limite:
+            print("O Valor limite de saque diário é de R$ 500,00.")
+          else:
+            transacao.append({"Operacao": "Saque", "Valor": f"{saque:.2f}"})
+            atualizacao = atualizar_saldo(mov_transacao)
+            print(f"O valor do saque é {atualizacao}")
+            saldo = 0
+            saldo = atualizacao
+            print(f"O saldo final é {saldo}")
+            print(mensagem)
+            numero_saques += 1
+            print(f"Numero de saques {numero_saques}")
 
-        print(f"Depósito de R$ {saque:.2f} efetuado com sucesso!")
-        transacao.append({"Saque": f"{saque:.2f}"})
-        print(transacao)
       elif opcao == 2:
         print("Extrato")
 
 
 
-      
     
-
     except ValueError:
       print("Digite um número valido!")
 
