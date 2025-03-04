@@ -37,6 +37,7 @@ LIMITE_SAQUES = 3
 
 def atualizar_saldo (mov_transacao):
  resultado_parcial = 0
+ print(f"O resultado parcial em alualizar saldo é {resultado_parcial}")
  for valores in mov_transacao:
     if(valores["Operacao"] == "Deposito"):
       resultado_parcial += float(valores["Valor"])
@@ -45,6 +46,7 @@ def atualizar_saldo (mov_transacao):
  return resultado_parcial
 
 def sistema_bancario (mov_transacao):
+  saldo_inicial = 1000
   saldo = 0
 
   while True:
@@ -55,11 +57,13 @@ def sistema_bancario (mov_transacao):
         deposito = float(input("Digite o valor do depósito: "))
         print(f"Depósito de R$ {deposito:.2f} efetuado com sucesso!")
         transacao.append({"Operacao": "Deposito", "Valor": f"{deposito:.2f}"})
-        print(transacao)
+        print(f"O conteudo de transação é {transacao}")
         atualizacao = atualizar_saldo(mov_transacao)
-        print(atualizacao)
-        saldo += atualizacao
-        mensagem = f"Seu saldo é de {saldo }"
+        print(f" O somatorio de transação é {atualizacao}")
+        saldo = 0
+        print(f"O saldo é {saldo}")
+        saldo = saldo_inicial + atualizacao
+        mensagem = f"Seu saldo é de {saldo}"
         print(mensagem)
 
       elif opcao == 1:
