@@ -75,6 +75,7 @@ def sistema_bancario (mov_transacao):
             print("O Valor limite de saque diário é de R$ 500,00.")
           else:
             transacao.append({"Operacao": "Saque", "Valor": f"{saque:.2f}"})
+            print(transacao)
             atualizacao = atualizar_saldo(mov_transacao)
             print(f"O valor do saque é {atualizacao}")
             saldo = 0
@@ -85,9 +86,19 @@ def sistema_bancario (mov_transacao):
             print(f"Numero de saques {numero_saques}")
 
       elif opcao == 2:
-        print("Extrato")
+        print("============= EXTRATO =============")
+        print(f"{'Tipo':<23} {'Valor':>9}")
+        print("===================================")
 
-
+        for lancamento in transacao:
+          if lancamento["Operacao"] == "Saque":
+            tipo_saque = f"{lancamento['Operacao']:<21}"
+            valor_saque = f"R$ ({float(lancamento['Valor']):>8.2f})"
+            print(f"{tipo_saque} {valor_saque}")
+          else:
+            tipo_deposito = f"{lancamento['Operacao']:<21}"
+            valor_deposito = f"R$ {float(lancamento['Valor']):>9.2f}"
+            print(f"{tipo_deposito} {valor_deposito}")
 
     
     except ValueError:
@@ -96,12 +107,12 @@ def sistema_bancario (mov_transacao):
 sistema_bancario(transacao)
 
 
-# ========== EXTRATO ==========
-# Tipo                 Valor     
+# ========== EXTRATO ===========
+# Tipo                   Valor     
 # ==============================
 # Depósito             R$ 100.00
-# Saque                R$ 50.00
+# Saque                R$  50.00
 # Depósito             R$ 200.00
 
 # Saldo final: R$ 250.00
-# ============================
+# ==============================
