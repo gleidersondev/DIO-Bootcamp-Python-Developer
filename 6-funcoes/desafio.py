@@ -99,6 +99,8 @@ def sistema_bancario (mov_transacao):
             tipo_deposito = f"{lancamento['Operacao']:<21}"
             valor_deposito = f"R$ {float(lancamento['Valor']):>9.2f}"
             print(f"{tipo_deposito} {valor_deposito}")
+      else:
+        print("Opção Incorreta! Digite um número constante no MENU")
 
     
     except ValueError:
