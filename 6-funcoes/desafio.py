@@ -49,6 +49,7 @@ def sistema_bancario (mov_transacao):
   limite = 500
   LIMITE_SAQUES = 3
   mensagem = f"Seu saldo é de {saldo}"
+  saldo_final = 0
 
   while True:
     try:
@@ -87,7 +88,7 @@ def sistema_bancario (mov_transacao):
 
       elif opcao == 2:
         print("============= EXTRATO =============")
-        print(f"{'Tipo':<23} {'Valor':>9}")
+        print(f"{'Tipo':<23} {'Valor':>8}")
         print("===================================")
 
         for lancamento in transacao:
@@ -95,10 +96,14 @@ def sistema_bancario (mov_transacao):
             tipo_saque = f"{lancamento['Operacao']:<21}"
             valor_saque = f"R$ ({float(lancamento['Valor']):>8.2f})"
             print(f"{tipo_saque} {valor_saque}")
+            # saldo_final -= float(lancamento["Valor"])
           else:
             tipo_deposito = f"{lancamento['Operacao']:<21}"
             valor_deposito = f"R$ {float(lancamento['Valor']):>9.2f}"
             print(f"{tipo_deposito} {valor_deposito}")
+        #     saldo_final += float(lancamento["Valor"])
+        print(f"{'=' * 35}")
+        print(f"{'SALDO:':<24} {saldo:9.2f}")
       else:
         print("Opção Incorreta! Digite um número constante no MENU")
 
