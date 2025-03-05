@@ -30,8 +30,6 @@ Seja bem-vindo ao PyBank. Escolha uma opção do menu abaixo.
 
 => """
 
-transacao = []
-
 def atualizar_saldo (mov_transacao):
  resultado_parcial = 0
  for valores in mov_transacao:
@@ -41,11 +39,12 @@ def atualizar_saldo (mov_transacao):
       resultado_parcial -= float(valores["Valor"])
  return resultado_parcial
 
-def sistema_bancario (mov_transacao):
+def sistema_bancario ():
   saldo = 0
   numero_saques = 0
   limite = 500
   LIMITE_SAQUES = 3
+  transacao = []
 
   while True:
     try:
@@ -55,7 +54,7 @@ def sistema_bancario (mov_transacao):
         deposito = float(input("Digite o valor do depósito: "))
         print(f"Depósito de R$ {deposito:.2f} efetuado com sucesso!")
         transacao.append({"Operacao": "Deposito", "Valor": f"{deposito:.2f}"})
-        atualizacao = atualizar_saldo(mov_transacao)
+        atualizacao = atualizar_saldo(transacao)
         saldo = 0
         saldo = atualizacao
         print(f"Seu saldo é de R$: {saldo:.2f}")
@@ -72,7 +71,7 @@ def sistema_bancario (mov_transacao):
           else:
             print(f"Saque de R$ {saque:.2f} efetuado com sucesso!")
             transacao.append({"Operacao": "Saque", "Valor": f"{saque:.2f}"})
-            atualizacao = atualizar_saldo(mov_transacao)
+            atualizacao = atualizar_saldo(transacao)
             saldo = 0
             saldo = atualizacao
             print(f"Seu saldo é de R$: {saldo:.2f}")
@@ -97,21 +96,14 @@ def sistema_bancario (mov_transacao):
         print(f"{'=' * 35}")
         print(f"{'SALDO:':<24} {saldo:9.2f}")
 
+      elif opcao == 3:
+        print("Obrigado por utilizar nossos serviços! Até Breve!!")
+        break
+
       else:
         print("Opção Incorreta! Digite um número constante no MENU")
     
     except ValueError:
       print("Digite um número valido!")
 
-sistema_bancario(transacao)
-
-
-# ========== EXTRATO ===========
-# Tipo                   Valor     
-# ==============================
-# Depósito             R$ 100.00
-# Saque                R$  50.00
-# Depósito             R$ 200.00
-
-# Saldo final: R$ 250.00
-# ==============================
+sistema_bancario()
