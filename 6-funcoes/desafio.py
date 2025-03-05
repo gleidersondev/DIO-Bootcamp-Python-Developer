@@ -34,13 +34,11 @@ transacao = []
 
 def atualizar_saldo (mov_transacao):
  resultado_parcial = 0
- print(f"O resultado parcial em alualizar saldo é {resultado_parcial}")
  for valores in mov_transacao:
     if(valores["Operacao"] == "Deposito"):
       resultado_parcial += float(valores["Valor"])
     else:
       resultado_parcial -= float(valores["Valor"])
- print(f"resultado dentro de atualiza saldo {resultado_parcial}")
  return resultado_parcial
 
 def sistema_bancario (mov_transacao):
@@ -48,8 +46,6 @@ def sistema_bancario (mov_transacao):
   numero_saques = 0
   limite = 500
   LIMITE_SAQUES = 3
-  mensagem = f"Seu saldo é de {saldo}"
-  saldo_final = 0
 
   while True:
     try:
@@ -62,8 +58,7 @@ def sistema_bancario (mov_transacao):
         atualizacao = atualizar_saldo(mov_transacao)
         saldo = 0
         saldo = atualizacao
-        print(f"o saldo é de: {saldo:.2f}")
-        print(mensagem)
+        print(f"Seu saldo é de R$: {saldo:.2f}")
 
       elif opcao == 1:
         if numero_saques >= LIMITE_SAQUES:
@@ -75,16 +70,13 @@ def sistema_bancario (mov_transacao):
           elif saque > limite:
             print("O Valor limite de saque diário é de R$ 500,00.")
           else:
+            print(f"Saque de R$ {saque:.2f} efetuado com sucesso!")
             transacao.append({"Operacao": "Saque", "Valor": f"{saque:.2f}"})
-            print(transacao)
             atualizacao = atualizar_saldo(mov_transacao)
-            print(f"O valor do saque é {atualizacao}")
             saldo = 0
             saldo = atualizacao
-            print(f"O saldo final é {saldo}")
-            print(mensagem)
+            print(f"Seu saldo é de R$: {saldo:.2f}")
             numero_saques += 1
-            print(f"Numero de saques {numero_saques}")
 
       elif opcao == 2:
         print("============= EXTRATO =============")
@@ -96,17 +88,17 @@ def sistema_bancario (mov_transacao):
             tipo_saque = f"{lancamento['Operacao']:<21}"
             valor_saque = f"R$ ({float(lancamento['Valor']):>8.2f})"
             print(f"{tipo_saque} {valor_saque}")
-            # saldo_final -= float(lancamento["Valor"])
+
           else:
             tipo_deposito = f"{lancamento['Operacao']:<21}"
             valor_deposito = f"R$ {float(lancamento['Valor']):>9.2f}"
             print(f"{tipo_deposito} {valor_deposito}")
-        #     saldo_final += float(lancamento["Valor"])
+
         print(f"{'=' * 35}")
         print(f"{'SALDO:':<24} {saldo:9.2f}")
+
       else:
         print("Opção Incorreta! Digite um número constante no MENU")
-
     
     except ValueError:
       print("Digite um número valido!")
