@@ -9,7 +9,7 @@
   # o sistema deve exibir uma mensagem informando que não será possível sacar o dinheiro por falta de saldo.
   # todos os saques devem ser armazenados em uma variável e exibidos na operação extrato
 
-  # EXTRATO: deve listar todos os depósitos e saques realizados na conta. No fim da listagem deve ser exibido o saldo atual
+  # EXTRATO: deve listar todos os depósitos e saques realizados na conta. No fim da listagem deve ser exibido o saldo atual.
 
 menu = f"""
 
