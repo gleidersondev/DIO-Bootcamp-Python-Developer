@@ -92,3 +92,54 @@ print(linguagens)
 
 
 # Index
+
+linguagens = ["python", "js", "c", "java", "csharp"]
+
+print(linguagens.index("java")) 
+print(linguagens.index("python")) 
+
+
+# Pop
+
+linguagens = ["python", "js", "c", "java", "csharp"]
+
+print(linguagens.pop())  
+print(linguagens.pop())  
+print(linguagens.pop())  
+print(linguagens.pop(0)) 
+
+
+# Remove
+
+linguagens = ["python", "js", "c", "java", "csharp"]
+
+linguagens.remove("c")
+
+print(linguagens) 
+
+
+# Reverse
+
+linguagens = ["python", "js", "c", "java", "csharp"]
+
+linguagens.reverse()
+
+print(linguagens)
+
+
+# Sort
+
+linguagens = ["python", "js", "c", "java", "csharp"]
+linguagens.sort() 
+print(linguagens)
+
+linguagens = ["python", "js", "c", "java", "csharp"]
+linguagens.sort(reverse=True) 
+print(linguagens)
+
+
+# Len
+
+linguagens = ["python", "js", "c", "java", "csharp"]
+
+print(len(linguagens)) 
