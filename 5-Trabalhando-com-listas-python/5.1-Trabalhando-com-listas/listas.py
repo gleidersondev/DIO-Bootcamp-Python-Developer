@@ -42,3 +42,24 @@ print(pares)
 numeros = [1, 30, 21, 2, 9, 65, 34]
 quadrado = [numero**2 for numero in numeros]
 print(quadrado)
+
+# Append
+
+lista = []
+
+lista.append(1)
+lista.append("Python")
+lista.append([40, 30, 20])
+
+print(lista)
+
+# Clear
+
+lista = [1, "Python", [40, 30, 20]]
+
+print(lista) 
+
+lista.clear()
+
+print(lista)
+
