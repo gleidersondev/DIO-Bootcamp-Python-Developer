@@ -63,3 +63,32 @@ lista.clear()
 
 print(lista)
 
+# Copy
+
+lista = [1, "Python", [40, 30, 20]]
+
+lista.copy()
+
+print(lista)
+
+# Count
+
+cores = ["vermelho", "azul", "verde", "azul"]
+
+print(cores.count("vermelho")) 
+print(cores.count("azul")) 
+print(cores.count("verde"))
+
+
+# Extend
+
+linguagens = ["python", "js", "c"]
+
+print(linguagens) 
+
+linguagens.extend(["java", "csharp"])
+
+print(linguagens)
+
+
+# Index
