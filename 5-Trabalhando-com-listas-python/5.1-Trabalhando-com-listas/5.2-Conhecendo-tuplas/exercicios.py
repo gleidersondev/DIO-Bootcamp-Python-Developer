@@ -32,4 +32,7 @@ print(contador)
 
 # 3
 
+posicao = carros.index("Civic")
+print(posicao)
+
 
