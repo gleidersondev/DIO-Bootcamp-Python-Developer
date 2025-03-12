@@ -35,4 +35,18 @@ print(contador)
 posicao = carros.index("Civic")
 print(posicao)
 
+# 4
+
+def verifica_carros():
+  carros_com_mais_de_cinco_letras = []
+  for index in carros:
+    if len(index) > 5:
+      carros_com_mais_de_cinco_letras.append(index)
+  if len(carros_com_mais_de_cinco_letras) == 0:
+    print("Não existe nenhum carro com mais de 5 letras na lista")
+  else:
+    print(carros_com_mais_de_cinco_letras)
+    
+verifica_carros()    
+
 
