@@ -27,4 +27,9 @@ print(inverso)
 
 # 2
 
+contador = carros.count("Gol")
+print(contador)
+
+# 3
+
 
