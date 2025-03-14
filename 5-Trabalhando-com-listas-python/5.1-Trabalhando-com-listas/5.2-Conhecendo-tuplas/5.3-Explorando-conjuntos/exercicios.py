@@ -15,4 +15,5 @@ usuarios_cadastrados = {"alice", "bob", "carla", "daniel"}
 novos_usuarios = {"bob", "daniel", "eva", "fernando"}
 
 # Verificar quais já estão cadastrados
-
+print(f"Já estão cadastrados: {usuarios_cadastrados.intersection(novos_usuarios)}")
+print(f"São novos usuários: {novos_usuarios.difference(usuarios_cadastrados)}")
