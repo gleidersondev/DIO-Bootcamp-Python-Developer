@@ -31,3 +31,33 @@ carrinho_unico = set(carrinho)
 
 print("Produtos no carrinho (sem repetição):", carrinho_unico)
 
+
+
+# 3️⃣ Detectando Palavras Proibidas em Comentários
+
+# 📌 Situação: Você quer bloquear comentários que contenham palavras proibidas.
+
+# 🔹 Desafio:
+
+#     Defina um conjunto de palavras proibidas.
+#     Peça ao usuário para digitar um comentário e verifique se ele contém alguma palavra proibida.
+
+palavras_proibidas = {"ofensa", "palavrão", "xingamento"}
+
+
+
+
+
+
+
+# 4️⃣ Comparando Estoques de Duas Lojas
+
+# 📌 Situação: Você tem duas lojas e quer saber quais produtos estão disponíveis em ambas e quais são exclusivos de cada loja.
+
+# 🔹 Desafio:
+
+#     Crie conjuntos com os produtos de cada loja.
+#     Exiba quais produtos estão nas duas lojas e quais são exclusivos de cada uma.
+
+loja1 = {"celular", "tablet", "notebook", "mouse"}
+loja2 = {"notebook", "mouse", "impressora", "monitor"}
