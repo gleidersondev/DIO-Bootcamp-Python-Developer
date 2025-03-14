@@ -27,4 +27,7 @@ print(f"São novos usuários: {novos_usuarios.difference(usuarios_cadastrados)}"
 
 carrinho = ["notebook", "mouse", "teclado", "mouse", "monitor", "teclado"]
 
+carrinho_unico = set(carrinho)
+
+print("Produtos no carrinho (sem repetição):", carrinho_unico)
 
