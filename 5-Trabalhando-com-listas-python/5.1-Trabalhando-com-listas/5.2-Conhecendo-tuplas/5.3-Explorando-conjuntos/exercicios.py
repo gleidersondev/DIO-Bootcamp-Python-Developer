@@ -44,9 +44,11 @@ print("Produtos no carrinho (sem repetição):", carrinho_unico)
 
 palavras_proibidas = {"ofensa", "palavrão", "xingamento"}
 
+comentario = input("Digite um comentário: ")
+print(comentario)
 
-
-
+if palavras_proibidas & set(comentario.split()):
+  print("Não utilize palavras ofensivas. Seje respeitoso!")
 
 
 
