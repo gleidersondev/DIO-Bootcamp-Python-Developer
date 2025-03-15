@@ -63,3 +63,7 @@ if palavras_proibidas & set(comentario.split()):
 
 loja1 = {"celular", "tablet", "notebook", "mouse"}
 loja2 = {"notebook", "mouse", "impressora", "monitor"}
+
+print(f"Estão nas duas lojas {loja1 & loja2}")
+print(f"Exclusivo na loja 1 {loja1 - loja2}")
+print(f"Exclusivo na loja 2 {loja2 - loja1}")
