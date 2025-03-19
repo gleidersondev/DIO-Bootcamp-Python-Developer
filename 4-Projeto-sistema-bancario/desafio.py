@@ -10,6 +10,14 @@
   # todos os saques devem ser armazenados em uma variável e exibidos na operação extrato
 
   # EXTRATO: deve listar todos os depósitos e saques realizados na conta. No fim da listagem deve ser exibido o saldo atual
+  
+# segunda versão: 
+
+  # Estabelecer um limite de 10 transações diárias para conta
+  
+  # Se o usuario tentar fazer uma transação após o limite, deve ser informado que ele excedeu o número de transações permitidas
+  # para quele dia
+  # Mostre no extrato, a data e hora de todas as transações.
 
 menu = f"""
 
