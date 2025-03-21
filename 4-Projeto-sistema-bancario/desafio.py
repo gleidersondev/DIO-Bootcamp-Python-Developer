@@ -67,7 +67,7 @@ def sistema_bancario ():
         print("============= EXTRATO =============")
         print(f"{'Tipo':<23} {'Valor':>8}")
         print("===================================")
-
+        
         for lancamento in transacao:
           if lancamento["Operacao"] == "Saque":
             tipo_saque = f"{lancamento['Operacao']:<21}"
@@ -116,34 +116,8 @@ def sistema_bancario ():
               contador_de_transacoes += 1
               numero_saques += 1
           
-        # elif opcao == 2:
-        #   print("============= EXTRATO =============")
-        #   print(f"{'Tipo':<23} {'Valor':>8}")
-        #   print("===================================")
-
-        #   for lancamento in transacao:
-        #     if lancamento["Operacao"] == "Saque":
-        #       tipo_saque = f"{lancamento['Operacao']:<21}"
-        #       valor_saque = f"R$ ({float(lancamento['Valor']):>8.2f})"
-        #       print(f"{tipo_saque} {valor_saque}")
-
-        #     else:
-        #       tipo_deposito = f"{lancamento['Operacao']:<21}"
-        #       valor_deposito = f"R$ {float(lancamento['Valor']):>9.2f}"
-        #       print(f"{tipo_deposito} {valor_deposito}")
-
-        #   print(f"{'=' * 35}")
-        #   print(f"{'SALDO:':<24} {saldo:9.2f}")
-
-        # elif opcao == 3:
-        #   print("Obrigado por utilizar nossos serviços! Até Breve!!")
-        #   break
-    
-        # else: 
-        #   print("Opção Incorreta! Digite um número constante no MENU")
-          
       else:
-        print("Você excedeu o número de transações permitidas para este dia")
+        print("Você excedeu o número de transações permitidas para este dia.")
         
     except ValueError:
       print("Digite um número valido!")
