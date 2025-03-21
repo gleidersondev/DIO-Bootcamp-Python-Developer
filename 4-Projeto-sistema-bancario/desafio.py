@@ -14,7 +14,6 @@
 # segunda versão: 
 
   # Estabelecer um limite de 10 transações diárias para conta
-  
   # Se o usuario tentar fazer uma transação após o limite, deve ser informado que ele excedeu o número de transações permitidas
   # para quele dia
   # Mostre no extrato, a data e hora de todas as transações.
@@ -53,39 +52,18 @@ def sistema_bancario ():
   limite = 500
   LIMITE_SAQUES = 3
   transacao = []
+  contador_de_transacoes = 1
+  opcoes_menu = {0, 1, 2, 3}
 
   while True:
     try:
       opcao = int(input(menu))
       
-      if opcao == 0:
-        deposito = float(input("Digite o valor do depósito: "))
-        print(f"Depósito de R$ {deposito:.2f} efetuado com sucesso!")
-        transacao.append({"Operacao": "Deposito", "Valor": f"{deposito:.2f}"})
-        atualizacao = atualizar_saldo(transacao)
-        saldo = 0
-        saldo = atualizacao
-        print(f"Seu saldo é de R$: {saldo:.2f}")
-
-      elif opcao == 1:
-        if numero_saques >= LIMITE_SAQUES:
-          print("Seu limite diário de 3 saques já foi atingido!")
-        else:
-          saque = float(input("Digite o valor do saque: "))
-          if saque > saldo:
-            print("Não foi possível realizar a operação. Saldo indisponível!")
-          elif saque > limite:
-            print("O Valor limite de saque diário é de R$ 500,00.")
-          else:
-            print(f"Saque de R$ {saque:.2f} efetuado com sucesso!")
-            transacao.append({"Operacao": "Saque", "Valor": f"{saque:.2f}"})
-            atualizacao = atualizar_saldo(transacao)
-            saldo = 0
-            saldo = atualizacao
-            print(f"Seu saldo é de R$: {saldo:.2f}")
-            numero_saques += 1
-
-      elif opcao == 2:
+      if opcao not in opcoes_menu:
+        print("Opção Incorreta! Digite um número constante no MENU")
+      
+          
+      if opcao == 2:
         print("============= EXTRATO =============")
         print(f"{'Tipo':<23} {'Valor':>8}")
         print("===================================")
@@ -103,14 +81,70 @@ def sistema_bancario ():
 
         print(f"{'=' * 35}")
         print(f"{'SALDO:':<24} {saldo:9.2f}")
+        
+      if opcao == 3:
+          print("Obrigado por utilizar nossos serviços! Até Breve!!")
+          break  
+        
+      if contador_de_transacoes <= 10:
+        if opcao == 0:
+          deposito = float(input("Digite o valor do depósito: "))
+          print(f"Depósito de R$ {deposito:.2f} efetuado com sucesso!")
+          transacao.append({"Operacao": "Deposito", "Valor": f"{deposito:.2f}"})
+          atualizacao = atualizar_saldo(transacao)
+          saldo = 0
+          saldo = atualizacao
+          contador_de_transacoes += 1
+          print(f"Seu saldo é de R$: {saldo:.2f}")
 
-      elif opcao == 3:
-        print("Obrigado por utilizar nossos serviços! Até Breve!!")
-        break
+        if opcao == 1:
+          if numero_saques >= LIMITE_SAQUES:
+            print("Seu limite diário de 3 saques já foi atingido!")
+          else:
+            saque = float(input("Digite o valor do saque: "))
+            if saque > saldo:
+              print("Não foi possível realizar a operação. Saldo indisponível!")
+            elif saque > limite:
+              print("O Valor limite de saque diário é de R$ 500,00.")
+            else:
+              print(f"Saque de R$ {saque:.2f} efetuado com sucesso!")
+              transacao.append({"Operacao": "Saque", "Valor": f"{saque:.2f}"})
+              atualizacao = atualizar_saldo(transacao)
+              saldo = 0
+              saldo = atualizacao
+              print(f"Seu saldo é de R$: {saldo:.2f}")
+              contador_de_transacoes += 1
+              numero_saques += 1
+          
+        # elif opcao == 2:
+        #   print("============= EXTRATO =============")
+        #   print(f"{'Tipo':<23} {'Valor':>8}")
+        #   print("===================================")
 
-      else:
-        print("Opção Incorreta! Digite um número constante no MENU")
+        #   for lancamento in transacao:
+        #     if lancamento["Operacao"] == "Saque":
+        #       tipo_saque = f"{lancamento['Operacao']:<21}"
+        #       valor_saque = f"R$ ({float(lancamento['Valor']):>8.2f})"
+        #       print(f"{tipo_saque} {valor_saque}")
+
+        #     else:
+        #       tipo_deposito = f"{lancamento['Operacao']:<21}"
+        #       valor_deposito = f"R$ {float(lancamento['Valor']):>9.2f}"
+        #       print(f"{tipo_deposito} {valor_deposito}")
+
+        #   print(f"{'=' * 35}")
+        #   print(f"{'SALDO:':<24} {saldo:9.2f}")
+
+        # elif opcao == 3:
+        #   print("Obrigado por utilizar nossos serviços! Até Breve!!")
+        #   break
     
+        # else: 
+        #   print("Opção Incorreta! Digite um número constante no MENU")
+          
+      else:
+        print("Você excedeu o número de transações permitidas para este dia")
+        
     except ValueError:
       print("Digite um número valido!")
 
