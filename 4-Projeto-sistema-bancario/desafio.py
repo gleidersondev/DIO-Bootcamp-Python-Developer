@@ -73,12 +73,12 @@ def sistema_bancario ():
         
         for lancamento in transacao:
           if lancamento["Operacao"] == "Saque":
-            tipo_saque = f"{lancamento['Data'], lancamento['Hora'], lancamento['Operacao']:<21}"
+            tipo_saque = f"{lancamento['Data']}, {lancamento['Hora']}, {lancamento['Operacao']:<21}"
             valor_saque = f"R$ ({float(lancamento['Valor']):>8.2f})"
             print(f"{tipo_saque} {valor_saque}")
 
           else:
-            tipo_deposito = f"{lancamento['Data'], lancamento['Hora'], lancamento['Operacao']:<21}"
+            tipo_deposito = f"{lancamento['Data']}, {lancamento['Hora']}, {lancamento['Operacao']:<21}"
             valor_deposito = f"R$ {float(lancamento['Valor']):>9.2f}"
             print(f"{tipo_deposito} {valor_deposito}")
 
