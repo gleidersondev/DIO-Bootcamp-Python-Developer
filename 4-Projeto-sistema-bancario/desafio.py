@@ -56,10 +56,11 @@ def sistema_bancario ():
   transacao = []
   contador_de_transacoes = 1
   opcoes_menu = {0, 1, 2, 3}
-  data_hora = datetime.now()
+  
 
   while True:
     try:
+      data_hora = datetime.now()
       opcao = int(input(menu))
       
       if opcao not in opcoes_menu:
