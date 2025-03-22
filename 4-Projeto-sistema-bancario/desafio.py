@@ -17,6 +17,8 @@
   # Se o usuario tentar fazer uma transação após o limite, deve ser informado que ele excedeu o número de transações permitidas
   # para quele dia
   # Mostre no extrato, a data e hora de todas as transações.
+  
+from datetime import datetime
 
 menu = f"""
 
@@ -54,6 +56,7 @@ def sistema_bancario ():
   transacao = []
   contador_de_transacoes = 1
   opcoes_menu = {0, 1, 2, 3}
+  data_hora = datetime.now()
 
   while True:
     try:
@@ -62,7 +65,6 @@ def sistema_bancario ():
       if opcao not in opcoes_menu:
         print("Opção Incorreta! Digite um número constante no MENU")
       
-          
       if opcao == 2:
         print("============= EXTRATO =============")
         print(f"{'Tipo':<23} {'Valor':>8}")
@@ -87,17 +89,17 @@ def sistema_bancario ():
           break  
         
       if contador_de_transacoes <= 10:
-        if opcao == 0:
+        if opcao == 0: #Depositar
           deposito = float(input("Digite o valor do depósito: "))
           print(f"Depósito de R$ {deposito:.2f} efetuado com sucesso!")
-          transacao.append({"Operacao": "Deposito", "Valor": f"{deposito:.2f}"})
+          transacao.append({"Data": f"{data_hora.strftime('%d/%m/%Y')}", "Hora": f"{data_hora.strftime('%H:%M')}", "Operacao": "Deposito", "Valor": f"{deposito:.2f}"})
           atualizacao = atualizar_saldo(transacao)
           saldo = 0
           saldo = atualizacao
           contador_de_transacoes += 1
           print(f"Seu saldo é de R$: {saldo:.2f}")
 
-        if opcao == 1:
+        if opcao == 1: #Sacar
           if numero_saques >= LIMITE_SAQUES:
             print("Seu limite diário de 3 saques já foi atingido!")
           else:
@@ -105,17 +107,17 @@ def sistema_bancario ():
             if saque > saldo:
               print("Não foi possível realizar a operação. Saldo indisponível!")
             elif saque > limite:
-              print("O Valor limite de saque diário é de R$ 500,00.")
+              print("O Valor limite de saque é de R$ 500,00.")
             else:
               print(f"Saque de R$ {saque:.2f} efetuado com sucesso!")
-              transacao.append({"Operacao": "Saque", "Valor": f"{saque:.2f}"})
+              transacao.append({"Data": f"{data_hora.strftime('%d/%m/%Y')}", "Hora": f"{data_hora.strftime('%H:%M')}", "Operacao": "Saque", "Valor": f"{saque:.2f}"})
               atualizacao = atualizar_saldo(transacao)
               saldo = 0
               saldo = atualizacao
               print(f"Seu saldo é de R$: {saldo:.2f}")
               contador_de_transacoes += 1
               numero_saques += 1
-          
+              
       else:
         print("Você excedeu o número de transações permitidas para este dia.")
         
