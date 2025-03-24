@@ -26,9 +26,9 @@ Olá, usuário!
 
 Seja bem-vindo ao PyBank. Escolha uma opção do menu abaixo.
 
-{'=' * 54}
-                     MENU
-{'=' * 54}
+{'=' * 56}
+                          MENU
+{'=' * 56}
 
 [0] Depositar
 [1] Sacar
@@ -67,23 +67,23 @@ def sistema_bancario ():
         print("Opção Incorreta! Digite um número constante no MENU")
       
       if opcao == 2:
-        print("====================== EXTRATO =======================")
-        print(f"{'Tipo':<43} {'Valor':>8}")
-        print("======================================================")
+        print("======================= EXTRATO ========================")
+        print(f"{'Tipo':<44} {'Valor':>8}")
+        print("========================================================")
         
         for lancamento in transacao:
           if lancamento["Operacao"] == "Saque":
-            tipo_saque = f"{lancamento['Data']}, {lancamento['Hora']}, {lancamento['Operacao']:<21}"
+            tipo_saque = f"{lancamento['Data']} | {lancamento['Hora']} | {lancamento['Operacao']:<21}"
             valor_saque = f"R$ ({float(lancamento['Valor']):>8.2f})"
             print(f"{tipo_saque} {valor_saque}")
 
           else:
-            tipo_deposito = f"{lancamento['Data']}, {lancamento['Hora']}, {lancamento['Operacao']:<21}"
+            tipo_deposito = f"{lancamento['Data']} | {lancamento['Hora']} | {lancamento['Operacao']:<21}"
             valor_deposito = f"R$ {float(lancamento['Valor']):>9.2f}"
             print(f"{tipo_deposito} {valor_deposito}")
 
-        print(f"{'=' * 54}")
-        print(f"{'SALDO:':<43} {saldo:9.2f}")
+        print(f"{'=' * 56}")
+        print(f"{'SALDO:':<45} {saldo:9.2f}")
         
       if opcao == 3:
           print("Obrigado por utilizar nossos serviços! Até Breve!!")
