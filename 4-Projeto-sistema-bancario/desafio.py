@@ -26,16 +26,16 @@ Olá, usuário!
 
 Seja bem-vindo ao PyBank. Escolha uma opção do menu abaixo.
 
-{'=' * 35}
-               MENU
-{'=' * 35}
+{'=' * 54}
+                     MENU
+{'=' * 54}
 
 [0] Depositar
 [1] Sacar
 [2] Extrato
 [3] Sair
 
-{'=' * 35}
+{'=' * 54}
 
 => """
 
@@ -68,7 +68,7 @@ def sistema_bancario ():
       
       if opcao == 2:
         print("====================== EXTRATO =======================")
-        print(f"{'Tipo':<23} {'Valor':>8}")
+        print(f"{'Tipo':<43} {'Valor':>8}")
         print("======================================================")
         
         for lancamento in transacao:
