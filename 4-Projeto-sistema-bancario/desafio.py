@@ -67,9 +67,9 @@ def sistema_bancario ():
         print("Opção Incorreta! Digite um número constante no MENU")
       
       if opcao == 2:
-        print("============= EXTRATO =============")
+        print("====================== EXTRATO =======================")
         print(f"{'Tipo':<23} {'Valor':>8}")
-        print("===================================")
+        print("======================================================")
         
         for lancamento in transacao:
           if lancamento["Operacao"] == "Saque":
@@ -82,8 +82,8 @@ def sistema_bancario ():
             valor_deposito = f"R$ {float(lancamento['Valor']):>9.2f}"
             print(f"{tipo_deposito} {valor_deposito}")
 
-        print(f"{'=' * 35}")
-        print(f"{'SALDO:':<24} {saldo:9.2f}")
+        print(f"{'=' * 54}")
+        print(f"{'SALDO:':<43} {saldo:9.2f}")
         
       if opcao == 3:
           print("Obrigado por utilizar nossos serviços! Até Breve!!")
