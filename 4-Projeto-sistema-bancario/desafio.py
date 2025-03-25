@@ -35,7 +35,7 @@ Seja bem-vindo ao PyBank. Escolha uma opção do menu abaixo.
 [2] Extrato
 [3] Sair
 
-{'=' * 54}
+{'=' * 56}
 
 => """
 
@@ -68,7 +68,8 @@ def sistema_bancario ():
       
       if opcao == 2:
         print("======================= EXTRATO ========================")
-        print(f"{'Tipo':<44} {'Valor':>8}")
+        
+        print(f"    {'Data':<9} {'Hora':<13} {'Histórico':<18}  Valor")
         print("========================================================")
         
         for lancamento in transacao:
