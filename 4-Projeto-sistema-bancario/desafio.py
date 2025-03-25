@@ -67,7 +67,9 @@ def sistema_bancario ():
         print("Opção Incorreta! Digite um número constante no MENU")
       
       if opcao == 2:
-        print("======================= EXTRATO ========================")
+        print("""======================= EXTRATO ========================
+              
+              """)
         
         print(f"    {'Data':<9} {'Hora':<13} {'Histórico':<18}  Valor")
         print("========================================================")
