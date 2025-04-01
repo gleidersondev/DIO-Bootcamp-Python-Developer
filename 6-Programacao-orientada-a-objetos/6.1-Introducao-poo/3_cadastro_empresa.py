@@ -7,7 +7,7 @@ class Empresa:
   def calcular_imposto(self):
     bc = (float(self.faturamento) * 0.32)
     irpj_normal = bc * 0.15
-    irpj = ((irpj_normal - 20000) * 0.10) + irpj_normal if irpj_normal > 20000 else bc 
+    irpj = (((irpj_normal - 20000) * 0.10) + irpj_normal) if irpj_normal > 20000 else bc 
     csll = bc * 0.09
     return irpj, csll
   
@@ -24,10 +24,9 @@ class Empresa:
     
     """)
     
+empresa1 = Empresa("Lupe SA", "01.100.200/0001-10", 100000)
+empresa1.exibir_dados()
 
-  
-  
-      
     
     
     
