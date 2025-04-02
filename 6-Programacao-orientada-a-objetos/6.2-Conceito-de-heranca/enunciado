@@ -1,0 +1,41 @@
+
+📌 Exercício 1: Cadastro de Clientes
+Crie uma função chamada cadastrar_cliente que receba kwargs para armazenar
+ os dados de um cliente, como nome, email, telefone e cidade. Se algum dado
+  não for informado, ele deve receber um valor padrão:
+
+🔹 Regras:
+✅ O nome é obrigatório.
+✅ O email e o telefone devem ter valores padrão "Não informado".
+✅ A cidade deve ter valor padrão "Cidade não especificada".
+✅ A função deve retornar um dicionário com os dados do cliente.
+
+💡 Exemplo de uso:
+
+cliente1 = cadastrar_cliente(nome="Maria Silva", email="maria@email.com")
+print(cliente1)
+
+🔹 Saída esperada:
+
+{'nome': 'Maria Silva', 'email': 'maria@email.com', 'telefone': 'Não informado', 'cidade': 'Cidade não especificada'}
+
+
+📌 Exercício 2: Sistema de Funcionários
+
+Crie um sistema de funcionários usando herança múltipla. O sistema deve ter três classes principais:
+
+    Pessoa (classe base) → Possui nome e idade.
+
+    Funcionario (herda de Pessoa) → Possui cargo e salario.
+
+    Beneficios → Classe separada que fornece benefícios, como vale-transporte e vale-alimentação.
+
+    Gerente (herda de Funcionario e Beneficios) → Adiciona um bônus salarial e exibe as informações completas.
+
+Regras do Exercício
+
+✅ A classe Pessoa deve armazenar nome e idade.
+✅ A classe Funcionario deve armazenar cargo e salário.
+✅ A classe Beneficios deve definir os valores de vale-transporte e vale-alimentação.
+✅ A classe Gerente deve herdar de Funcionario e Beneficios, e adicionar um bônus de 10% sobre o salário.
+✅ A função exibir_dados deve mostrar todas as informações do gerente.
