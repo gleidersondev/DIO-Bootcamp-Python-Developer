@@ -1,0 +1,42 @@
+Exercício: Sistema de Cadastro de Empresas
+
+Você trabalha em um escritório de contabilidade e precisa criar um 
+ sistema básico para cadastrar empresas e calcular o imposto sobre o
+  faturamento.
+
+
+🔹 O que você deve fazer?
+
+Crie uma classe chamada Empresa que tenha:
+
+    Atributos:
+
+        nome: Nome da empresa
+
+        cnpj: Número do CNPJ
+
+        faturamento: Faturamento mensal da empresa
+
+    Método calcular_imposto() que retorna o imposto devido com base
+     nas seguintes regras:
+
+        IRPJ:
+
+        BC1: Encontrar a base de cálculo (BC1) aplicando sobre o
+         faturamento a alíquota de 32%. Sobre o valor encontrado,
+          aplicar a alíquota de 15%.
+
+        BC2: Se BC1 for maior que R$ 20.000,00, aplicar 10% sobre 
+          o excedente.
+
+        VI: O valor do imposto (VI) será a soma BC1 + BC2
+
+       CSLL
+
+       VI: Encontrar a base de cálculo (BC1) aplicando sobre o
+         faturamento a alíquota de 32%. Sobre o valor encontrado,
+          aplicar a alíquota de 9%.
+
+
+    Método exibir_dados() que imprime as informações da empresa e o 
+    imposto devido.
