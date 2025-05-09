@@ -1,0 +1,24 @@
+1 - Iniciar modelagem do sistema bancário em POO.
+  Adicionar classes para cliente e as operações bancárias:
+  depósito e saque. 
+  
+  
+2 - O código deve seguir o modelo de classes UML a seguir:
+
+  ![alt text](image.png)
+
+  A classe Conta vai ter os atributos:
+  saldo (não recebe nenhum argumento e retorna float), numero, agencia,
+  cliente e historico (que possue um método de adicionar transação e
+  possui um argumento que são as transações), todos eles privados.
+  E os métodos:
+  saldo, nova_conta (método que cria uma conta, lembrar do classmethod.
+  Tem que retornar o objeto conta), sacar (recebe um valor float e retorna
+  um bool), depositar (recebe um valor que é float e retorna bool ou seja se
+  a operação teve sucesso ou falha)
+
+  A classe Conta vai ter a classe filha ContaCorrente com 2 atributos:
+  limite e limite de saque
+
+
+
